@@ -63,6 +63,18 @@ nextBtn.addEventListener(
       countOfQuestion.innerHTML = `${questionCount + 1}   of   ${
         quizArray.length
       }   question`;
+      //Question
+      let question_div = document.createElement("p");
+      question_div.ClassList.Add("question");
+      question_div.innerHTML = i.question;
+      div.AppendChild(question_div);
+      //Options
+      div.innerHTML += `
+    <button Class="option-div" onclick="checker(this)">${i.options[0]}</button>
+     <button Class="option-div" onclick="checker(this)">${i.options[1]}</button>
+      <button Class="option-div" onclick="checker(this)">${i.options[2]}</button>
+       <button Class="option-div" onclick="checker(this)">${i.options[3]}</button>
+    `;
       //Display Quiz
       quizDisplay(questionCount);
       count = 11;
@@ -86,7 +98,7 @@ const timerDisplay = () => {
 
 //Display Quiz
 const quizDisplay = (questionCount) => {
-  let quizCards = document.QuerySelectorAll(".container-Mid");
+  let quizCards = document.QuerySelectorAll(".container-mid");
   //hide Other Cards
   quizCards.forEach((card) => {
     card.classList.Add("hide");
@@ -104,21 +116,21 @@ function quizCreator() {
     //randomly sort options
     i.options.sort(() => math.random() - 0.5);
     //Quiz Card Creation
-    let div = Document.CreateElement("div");
+    let div = document.createElement("div");
     div.classList.add("container-Mid", "hide");
     //Question Number
     countOfQuestion.innerHTML = `1 of ${quizArray.length} Question`;
     //Question
-    let question = document.createElement("p");
-    question.classList.add("question");
-    question.innerHTML = i.question;
-    div.appendChild(question);
-    //options
-    div.InnerHTML = `
-    <button Class="Option-Div" Onclick="Checker(This)">${i.options[0]}</button>
-    <button Class="Option-Div" Onclick="Checker(This)">${i.options[2]}</button>
-    <button Class="Option-Div" Onclick="Checker(This)">${i.options[3]}</button>
-    <button Class="Option-Div" Onclick="Checker(This)">${i.options[1]}</button>
+    let question_div = document.createElement("p");
+    question_div.ClassList.Add("question");
+    question_div.innerHTML = i.question;
+    div.AppendChild(question_div);
+    //Options
+    div.innerHTML += `
+    <button Class="option-div" onclick="checker(this)">${i.options[0]}</button>
+     <button Class="option-div" onclick="checker(this)">${i.options[1]}</button>
+      <button Class="option-div" onclick="checker(this)">${i.options[2]}</button>
+       <button Class="option-div" onclick="checker(this)">${i.options[3]}</button>
     `;
     quizContainer.appendChild(div);
   }
