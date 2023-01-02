@@ -109,11 +109,12 @@ function quizCreator() {
     //Question Number
     countOfQuestion.innerHTML = `1 of ${quizArray.length} Question`;
     //Question
-    let question_DIV = document.createElement("p");
-    question_DIV.classList.add("question");
-    question_DIV.innerHTML = i.question.div.appendChild(question_DIV);
+    let question = document.createElement("p");
+    question.classList.add("question");
+    question.innerHTML = i.question;
+    div.appendChild(question);
     //options
-    div.InnerHTML += `
+    div.InnerHTML = `
     <button Class="Option-Div" Onclick="Checker(This)">${i.options[0]}</button>
     <button Class="Option-Div" Onclick="Checker(This)">${i.options[2]}</button>
     <button Class="Option-Div" Onclick="Checker(This)">${i.options[3]}</button>
